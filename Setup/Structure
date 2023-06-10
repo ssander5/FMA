@@ -1,0 +1,244 @@
+FMA
+.
+├── Analysis
+│   ├── A_Unassembled
+│   │   ├── A0_Read_Data
+│   │   │   ├── RunReadData.sh
+│   │   │   ├── zone.A
+│   │   │   ├── zone.B
+│   │   │   ├── zone.C
+│   │   │   ├── zone.D
+│   │   │   ├── zone.E
+│   │   │   └── zone.F
+│   │   ├── A1_Quality_Control
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── bbmap
+│   │   │   ├── B_RunFastqcAndStats.sh
+│   │   │   ├── C_RunTrimmomaticandSickle.sh
+│   │   │   ├── D_RunBBMap.sh
+│   │   │   ├── E_RunBBMap2.sh
+│   │   │   ├── fastqc
+│   │   │   ├── final_QC_output
+│   │   │   ├── F_RunStats.sh
+│   │   │   ├── G_CopyResults.sh
+│   │   │   ├── sickle
+│   │   │   └── trimmomatic
+│   │   ├── A2_Reference_Analysis
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── B_RunDiamond.sh
+│   │   │   ├── B_RunHumann2.sh
+│   │   │   ├── B_RunKraken.sh
+│   │   │   ├── B_RunMetaPlan.sh
+│   │   │   ├── NOTES
+│   │   │   └── README
+│   │   └── A3_Comparative_Analysis
+│   │       ├── A_RunCheck.sh
+│   │       ├── B_RunContigClassifcation.sh
+│   │       ├── C_RunFunctionalAnnotation.sh
+│   │       ├── D_RunGeneClassification.sh
+│   │       ├── E_PredictMetabolicPathway.sh
+│   │       ├── kraken_out
+│   │       ├── NOTES
+│   │       ├── prokka_out
+│   │       └── README
+│   ├── B_Sample_Assembly
+│   │   ├── B0_Read_Data
+│   │   │   ├── RunReadData.sh
+│   │   │   ├── zone.A -> ../../A_Unassembled/A0_Read_Data/zone.A
+│   │   │   ├── zone.B -> ../../A_Unassembled/A0_Read_Data/zone.B
+│   │   │   ├── zone.C -> ../../A_Unassembled/A0_Read_Data/zone.C
+│   │   │   ├── zone.D -> ../../A_Unassembled/A0_Read_Data/zone.D
+│   │   │   ├── zone.E -> ../../A_Unassembled/A0_Read_Data/zone.E
+│   │   │   └── zone.F -> ../../A_Unassembled/A0_Read_Data/zone.F
+│   │   ├── B1_Quality_Control
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── B_RunFastqcAndStats.sh
+│   │   │   ├── C_RunTrimmomaticandSickle.sh
+│   │   │   ├── D_RunBBMap.sh
+│   │   │   ├── E_RunBBMap2.sh
+│   │   │   ├── final_QC_output -> ../../A_Unassembled/A1_Quality_Control/final_QC_output
+│   │   │   ├── F_RunStats.sh
+│   │   │   └── G_CopyResults.sh
+│   │   ├── B2_Assembly
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── B_Runidba.sh
+│   │   │   ├── B_RunMegahit.sh
+│   │   │   ├── B_RunSpades.sh
+│   │   │   ├── C_RunStats.sh
+│   │   │   ├── D_RunFilter.sh
+│   │   │   ├── megahit
+│   │   │   ├── NOTES
+│   │   │   └── spades
+│   │   ├── B3_Coverage_and_Binning
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── B_RunCoverage.sh
+│   │   │   ├── C_RunMaxbin.sh
+│   │   │   └── D_RunMetabat.sh
+│   │   ├── B4_Bin_Refinement
+│   │   │   ├── A_RunCheck.sh
+│   │   │   └── B_RunBinRefiner.sh
+│   │   └── B5_Bin_Classification
+│   │       ├── a_taxonomic_classification
+│   │       └── b_functional_classification
+│   ├── C_Zone_Assembly2
+│   │   ├── C0_Read_Data
+│   │   │   ├── RunReadData.sh
+│   │   │   ├── zone.A -> ../../A_Unassembled/A0_Read_Data/zone.A
+│   │   │   ├── zone.B -> ../../A_Unassembled/A0_Read_Data/zone.B
+│   │   │   ├── zone.C -> ../../A_Unassembled/A0_Read_Data/zone.C
+│   │   │   ├── zone.D -> ../../A_Unassembled/A0_Read_Data/zone.D
+│   │   │   ├── zone.E -> ../../A_Unassembled/A0_Read_Data/zone.E
+│   │   │   └── zone.F -> ../../A_Unassembled/A0_Read_Data/zone.F
+│   │   ├── C1_Combine_and_QC_Data
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── B_RunFastqcAndStats.sh
+│   │   │   ├── C_RunTrimmomaticandSickle.sh
+│   │   │   ├── D_RunBBMap.sh
+│   │   │   ├── E_RunBBMap2.sh
+│   │   │   ├── final_QC_output -> ../../A_Unassembled/A1_Quality_Control/final_QC_output
+│   │   │   ├── F_RunStats.sh
+│   │   │   └── G_CopyResults.sh
+│   │   ├── C2_Assembly
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── assembly_stats
+│   │   │   ├── B_Runidba.sh
+│   │   │   ├── B_RunMegaHit.sh
+│   │   │   ├── B_RunSpades.sh
+│   │   │   ├── C_RunStats.sh
+│   │   │   ├── D_RunFilter.sh
+│   │   │   ├── megahit
+│   │   │   └── spades
+│   │   ├── C3_Coverage_and_Binning
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── binning
+│   │   │   ├── B_RunCoverage.sh
+│   │   │   ├── coverage
+│   │   │   ├── C_RunMaxbin.sh
+│   │   │   └── D_RunMetabat.sh
+│   │   ├── C4_Bin_Refinement
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── bin_refinement
+│   │   │   ├── B_RunBinRefiner.sh
+│   │   │   └── checkM
+│   │   └── C5_Bin_Classification
+│   │       ├── a_taxonomic_classification
+│   │       └── b_functional_classification
+│   ├── D_Full_Assembly							###Likely to be removed, combined data is absolutely huge.
+│   │   ├── D0_Read_Data
+│   │   │   ├── Control1
+│   │   │   ├── Control2
+│   │   │   └── RunReadData.sh
+│   │   ├── D1_Quality_Control
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── B_RunFastqcAndStats.sh
+│   │   │   ├── C_RunTrimmomaticandSickle.sh
+│   │   │   ├── D_RunBBMap.sh
+│   │   │   ├── E_RunBBMap2.sh
+│   │   │   ├── final_QC_output -> ../../A_Unassembled/A1_Quality_Control/final_QC_output
+│   │   │   ├── F_RunStats.sh
+│   │   │   └── G_CopyResults.sh
+│   │   ├── D2_Assembly
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── B_RunMegaHit.sh
+│   │   │   ├── B_RunSpades.sh
+│   │   │   ├── C_RunStats.sh
+│   │   │   ├── D_RunFilter.sh
+│   │   │   ├── megahit
+│   │   │   └── spades
+│   │   ├── D3_Coverage_and_Binning
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── B_RunCoverage.sh
+│   │   │   ├── C_RunMaxbin.sh
+│   │   │   └── D_RunMetabat.sh
+│   │   ├── D4_Bin_Refinement
+│   │   │   ├── A_RunCheck.sh
+│   │   │   └── B_RunBinRefiner.sh
+│   │   └── D5_Bin_Classification
+│   │       ├── a_taxonomic_classification
+│   │       └── b_functional_classification
+│   ├── E_Control
+│   │   ├── E0_Read_Data
+│   │   │   ├── Control1
+│   │   │   └── RunReadData.sh
+│   │   ├── E1_Quality_Control
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── bbmap
+│   │   │   ├── B_RunFastqcAndStats.sh
+│   │   │   ├── C_RunTrimmomaticandSickle.sh
+│   │   │   ├── D_RunBBMap.sh
+│   │   │   ├── E_RunBBMap2.sh
+│   │   │   ├── fastqc
+│   │   │   ├── final_QC_output
+│   │   │   ├── F_RunStats.sh
+│   │   │   ├── G_CopyResults.sh
+│   │   │   ├── sickle
+│   │   │   └── trimmomatic
+│   │   ├── E2_Assembly
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── assembly_stats
+│   │   │   ├── B_RunMegaHit.sh
+│   │   │   ├── B_RunSpades.sh
+│   │   │   ├── C_RunStats.sh
+│   │   │   ├── D_RunFilter.sh
+│   │   │   └── megahit
+│   │   ├── E3_Coverage_and_Binning
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── binning
+│   │   │   ├── B_RunCoverage.sh
+│   │   │   ├── coverage
+│   │   │   ├── C_RunMaxbin.sh
+│   │   │   └── D_RunMetabat.sh
+│   │   ├── E4_Bin_Refinement
+│   │   │   ├── all.BR_Binning_refiner_outputs
+│   │   │   ├── A_RunCheck.sh
+│   │   │   ├── bin_refinement
+│   │   │   ├── B_RunBinRefiner.sh
+│   │   │   └── checkM
+│   │   └── E5_Bin_Classification
+│   │       ├── a_taxonomic_classification
+│   │       └── b_functional_classification
+│   ├── F_Visualizations
+│   ├── Reference
+│   └── Software
+│       ├── Metabat
+│       ├── binner
+│       ├── boost
+│       ├── Bracken
+│       ├── FragGeneScan
+│       ├── hmmer-3.3.2
+│       ├── MaxBin-2.2.7
+│       └── README
+├── Input_Data
+│   ├── 5A10_S9_L001_R1_001AB.fastq.gz -> ../../test_data/5A10_S9_L001_R1_001AB.fastq.gz
+│   ├── ....
+│   ├── 5D5_S23_L002_R2_001AB.fastq.gz -> ../../test_data/5D5_S23_L002_R2_001AB.fastq.gz
+│   ├── C1S01
+│   │   └── ...
+│   ├── C1S02
+│   │   └── ...
+│   ├── C1S03
+│   │   └── ...
+│   ├── C1S04
+│   │   └── ...
+│   ├── C1S05
+│   │   └── ...
+│   ├── C1S06
+│   │   └── ...
+│   ├── C1S07
+│   │   └── ...
+│   ├── C1S08
+│   │   └── ...
+│   └── C1S09
+│       └── ...
+├── NOTES
+├── Output
+│   ├── all.counts
+│   ├── sum.counts
+│   ├── zone.A.counts
+│   ├── zone.B.counts
+│   ├── zone.C.counts
+│   ├── zone.D.counts
+│   └── zone.E.counts
+├── README
+├── Setup
+└── Structure

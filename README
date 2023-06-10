@@ -1,0 +1,2 @@
+https://merenlab.org/2017/05/18/working-with-prokka/
+	prokka has a hard coded -c option, which limits calls to only full-length genes.  You can remove this for metagenomic analysis by removing the -c from prokka executable on line ~705.

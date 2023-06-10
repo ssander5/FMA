@@ -1,0 +1,7 @@
+Run in order:
+
+A_RunCheck.sh
+B_RunContigClassifcation.sh
+C_RunFunctionalAnnotation.sh
+D_RunGeneClassification.sh
+E_PredictMetabolicPathway.sh
