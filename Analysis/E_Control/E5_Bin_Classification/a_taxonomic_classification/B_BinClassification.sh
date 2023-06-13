@@ -24,7 +24,7 @@ for f in ../../E4_Bin_Refinement/bin_refinement/binrefiner_output/all.BR_Binning
       --use-names \
       ${f} \
       --report ./kraken_out/all.kreport \
-      --output ./kraken_out/.kraken
+      --output ./kraken_out/all.kraken
    done
 
 echo "DONE running bin classification!"
